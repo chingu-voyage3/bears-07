@@ -1,0 +1,22 @@
+.Navbar {
+  background-color: lightslategrey;
+}
+
+.Navbar ul {
+  list-style-type: none;
+  display:inline-block;
+}
+
+.Navbar li {
+  background-color: lightsteelblue;
+}
+
+.Navbar a:link, a:visited {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.Navbar a:hover {
+  color: black;
+}
