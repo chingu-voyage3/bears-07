@@ -2,7 +2,9 @@
   "name": "bears-07",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
+    "axios": "^0.17.1",
     "express": "^4.16.2",
     "mongoose": "^4.13.7",
     "react": "^16.2.0",
@@ -11,13 +13,17 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "start": "react-scripts start | node src/server.js",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node src/server.js",
+    "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3001",
   "repository": {
     "url": "https://github.com/chingu-voyage3/bears-07"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
