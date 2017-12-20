@@ -1,5 +1,8 @@
+/* https://material.io/guidelines/style/color.html#color-color-palette */
+
 .Navbar {
-  background-color: lightslategrey;
+  background-color: #546E7A;
+  font-size: 20px;
 }
 
 .Navbar ul {
@@ -8,15 +11,27 @@
 }
 
 .Navbar li {
-  background-color: lightsteelblue;
 }
 
 .Navbar a:link, a:visited {
-  padding: 10px;
   text-decoration: none;
-  color: white;
+  color: #ECEFF1;
 }
 
 .Navbar a:hover {
-  color: black;
+  color: #263238;
+}
+
+button {
+  background-color: #ECEFF1;
+  border-radius: 5px;
+  border: 2px solid #263238;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #263238;
+  border: 2px solid #ECEFF1;
+  color: #ECEFF1;
+  cursor: pointer;
 }

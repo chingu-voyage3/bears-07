@@ -26,16 +26,10 @@ db.once('open', function() {
   console.log('Connected succesfully to MongoDB.');
 });
 
-
-
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
-
-
-
-
 
 //To prevent errors from Cross Origin Resource Sharing, we will set our headers to allow CORS with middleware like so:
 app.use(function(req, res, next) {
@@ -47,33 +41,30 @@ app.use(function(req, res, next) {
   next();
 });
 
-
-
-
 // test http://localhost:3001/ping
 app.get('/ping', function (req, res) {
  return res.send('pong');
 });
 
-app.get('/', function(req, res) {
-  res.json('you did it');
-});
-
-app.post('/api/boards', function(req, res, next) {
-
-  var boardName = 'test2';
+// Create new board
+app.post('/api/boards', urlEncodedParser, function(req, res, next) {
 
   var createBoard = new Board({
-    name: boardName
+    title: req.body.title
   })
 
   Board.create(createBoard).then(function(){
     console.log('board created');
-  })
-  return res.send('board created')
+  }).then(res.json('board created'))
+
 })
 
-
+// Get all boards
+app.get('/api/boards', function(req, res, next) {
+  Board.find({}).then(allBoards => {
+    res.json(allBoards);
+  })
+})
 
 app.listen(app.get("port"), () => {
   console.log('Server is listening on port ' + app.get("port"));
