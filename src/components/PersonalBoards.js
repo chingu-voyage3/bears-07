@@ -24,7 +24,7 @@ class PersonalBoards extends Component {
 
   render() {
     var boards = this.state.list.map((board, index) => {
-      return <li key={index} className="board"> {board.title} </li>
+      return <li key={index}>{board.title}</li>
     })
     return (
       <div className="PersonalBoards">

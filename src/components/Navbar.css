@@ -1,7 +1,7 @@
 /* https://material.io/guidelines/style/color.html#color-color-palette */
 
 .Navbar {
-  background-color: #546E7A;
+  background-color: #CFD8DC;
   font-size: 20px;
 }
 
@@ -15,23 +15,36 @@
 
 .Navbar a:link, a:visited {
   text-decoration: none;
-  color: #ECEFF1;
+  color: #0277BD;
 }
 
 .Navbar a:hover {
-  color: #263238;
+  color: #37474F;
 }
 
-button {
-  background-color: #ECEFF1;
-  border-radius: 5px;
-  border: 2px solid #263238;
-  font-size: 20px;
-}
-
-button:hover {
-  background-color: #263238;
-  border: 2px solid #ECEFF1;
-  color: #ECEFF1;
+.submit-button {
+  padding: 5px;
+  color: #CFD8DC;
+  background: #0277BD;
+  border: 2px solid #607D8B;
   cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.submit-button:hover {
+  background-color: #B0BEC5;
+  border: 2px solid #607D8B;
+  color: #37474F;
+  cursor: pointer;
+  margin: 0px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.text-input {
+  padding: 5px;
+  border: 2px solid #607D8B;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }

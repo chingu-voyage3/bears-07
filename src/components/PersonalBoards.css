@@ -1,3 +1,19 @@
-li {
+.PersonalBoards ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.PersonalBoards li {
+  background-color: #0277BD;
+  color: #E8EAF6;
+  list-style-type: none;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 29.33%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
 }

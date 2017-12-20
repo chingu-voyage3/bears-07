@@ -39,8 +39,8 @@ class Navbar extends Component {
         <ul>
           <li>
             <form onSubmit={this.handleSubmit}>
-              <input type="text" value={this.state.title} onChange={this.handleTitleChange} required />
-              <input type="submit" value="New" />
+              <input type="text" value={this.state.title} onChange={this.handleTitleChange} className="text-input" required />
+              <input type="submit" value="+" className="submit-button" />
             </form>
           </li>
         </ul>
