@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './PersonalBoards.css';
 
-class PersonalBoards extends Component {
+class BoardView extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       list : [],
+      boardId : this.props.match.params.id
     };
   };
 
   componentDidMount() {
-    axios.get('/api/boards')
+    axios.get('/api/boardview/' + this.state.boardId)
     .then((response) => {
       console.log(response);
       this.setState({list: response.data});
@@ -24,23 +24,18 @@ class PersonalBoards extends Component {
   }
 
   render() {
-    var boards = this.state.list.map((board, index) => {
+    var board = this.state.list.map((board, index) => {
       return (
-        <li key={index}>
-          <Link to={"boardview/" + board._id}>
-          {board.title}
-          </Link>
-        </li>
+        <div key={"title"}>{board.title}</div>
       )
     })
     return (
-      <div className="PersonalBoards">
-        <h3>Personal Boards</h3>
-        <ul>{boards}</ul>
+      <div className="BoardView">
+        <div>{board}</div>
       </div>
     )
   }
 
 }
 
-export default PersonalBoards;
+export default BoardView;

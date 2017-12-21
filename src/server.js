@@ -66,6 +66,17 @@ app.get('/api/boards', function(req, res, next) {
   })
 })
 
+// Get single board
+app.get('/api/boardview/:id', function(req, res, next) {
+  Board.find({'_id':req.params.id}).then(board => {
+    res.json(board);
+  })
+})
+
+// Update a board
+app.get('/board/')
+
+// Server listen
 app.listen(app.get("port"), () => {
   console.log('Server is listening on port ' + app.get("port"));
 });

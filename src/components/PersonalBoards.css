@@ -17,3 +17,8 @@
   margin-bottom: 10px;
   display: inline-block;
 }
+
+.PersonalBoards a {
+  text-decoration: none;
+  color: white;
+}
