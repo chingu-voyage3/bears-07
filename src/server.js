@@ -50,7 +50,8 @@ app.get('/ping', function (req, res) {
 app.post('/api/boards', urlEncodedParser, function(req, res, next) {
 
   var createBoard = new Board({
-    title: req.body.title
+    title: req.body.title,
+    lists: []
   })
 
   Board.create(createBoard).then(function(){
@@ -73,8 +74,13 @@ app.get('/api/boardview/:id', function(req, res, next) {
   })
 })
 
-// Update a board
-app.get('/board/')
+
+// Add a list to a board
+app.put('/api/boards/:id', urlEncodedParser, function (req, res, next) {
+  Board.findOneAndUpdate({'_id':req.params.id}, {$addToSet: {lists: { title: req.body.newListTitle, cards: [] }}}).then(updatedBoard => {
+      res.json(updatedBoard);
+    })
+});
 
 // Server listen
 app.listen(app.get("port"), () => {
