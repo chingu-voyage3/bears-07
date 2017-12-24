@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './BoardView.css';
 
 class BoardView extends Component {
 
@@ -48,29 +49,34 @@ class BoardView extends Component {
 
   render() {
 
-    var board = this.state.list.map((board, index) => {
-
+    var boardHeader = this.state.list.map((board, index) => {
       return (
-
-        <div>
+        <div key={"boardHeaderContainer"}>
           <div key={"title"}>{board.title}</div>
-
-
-
-          <div key={"new-list"}>
-            <form key={"newListForm"} onSubmit={this.handleListTitleSubmit}>
-              <input key={"newListFormText"} type="text" value={this.state.newListTitle} onChange={this.handleListTitleChange} placeholder="New list" maxLength="100" required />
-              <input key={"newListFormSubmit"} type="submit" />
-            </form>
-          </div>
-
         </div>
       )
-
     })
+
+    var boardLists = this.state.list.map((board, index) => {
+      var boardLists2 = board.lists.map((list, index) => {
+        return (
+          <li key={"list" + index} className="list-item">{list.title}</li>
+        )
+      })
+      return (boardLists2)
+    })
+
+    var newList = <li key={"new-list"} className="list-item">
+                    <form key={"newListForm"} onSubmit={this.handleListTitleSubmit}>
+                      <input key={"newListFormText"} type="text" value={this.state.newListTitle} onChange={this.handleListTitleChange} placeholder="New list" maxLength="100" required />
+                      <input key={"newListFormSubmit"} type="submit" />
+                    </form>
+                  </li>;
+
     return (
       <div className="BoardView">
-        <h3>{board}</h3>
+        <div key="boardHeader"><h3>{boardHeader}</h3></div>
+        <ul key="boardLists" className="list-of-lists">{boardLists} {newList}</ul>
       </div>
     )
   }

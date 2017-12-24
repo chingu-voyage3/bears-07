@@ -1,0 +1,10 @@
+.list-of-lists {
+  white-space: nowrap;
+  padding: 0px;
+}
+
+.list-item {
+  display: inline-block;
+  margin-right: 50px;
+
+}
